@@ -1,12 +1,23 @@
 # wsl2-systemd-alwayson-script
-This script allows Linux distributions to run unabated in a Windows user session without an active Terminal. This is especially useful for running Klipper from a Windows OS.
+This script allows Linux distributions to run unabated in a Windows user session without an active Terminal. This is especially useful for running [Klipper](https://github.com/Klipper3d/klipper) from a Windows OS.
 
-## Installation Instructions
-You need ```git``` to be installed for the commands below to work. Use
+## Tested On
+* Windows 10 (22H2 - 19045)
+* Windows Subsystem for Linux (WSL) 2
+* Debian (Bookworm)
+* KIAUH*: Klipper (v0.11.0)
+* KIAUH: Moonraker (v0.8.0)
+* KIAUH: Mainsail (v2.6.2)
+  
+  *Installed through [Klipper Installation And Update Helper (KIAUH)](https://github.com/th33xitus/kiauh)
+
+## Pre-Installation Instructions
+This process is intended to be peformed after installing Klipper, Moonraker, and Mainsail. Remember, to use Klipper in WSL2, you must enable systemd by adding the **/etc/wsl.conf** file to your Linux distribution with the following system declaration:  
 ```sh
-sudo apt install git
+[boot]
+systemd=true
 ```
-to do so.
+
 ### Run the script and commands
 ```sh
 git clone https://github.com/DamionGans/ubuntu-wsl2-systemd-script.git
