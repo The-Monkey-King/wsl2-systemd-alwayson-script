@@ -13,7 +13,9 @@ This script allows Linux distributions to run unabated in a Windows user session
   *Installed through [Klipper Installation And Update Helper (KIAUH)](https://github.com/th33xitus/kiauh)
 
 ## Installation Instructions
-This process is intended to be peformed after installing Klipper, Moonraker, and Mainsail. Remember, to use Klipper in WSL2, you must enable systemd by adding the **/etc/wsl.conf** file to your Linux distribution with the following system declaration:  
+This process is intended to be peformed after installing Klipper, Moonraker, and Mainsail. However, Mookraker may need to be updated after this process. (See "Policykit Update" below) 
+
+Remember, to use Klipper in WSL2, you must enable systemd by adding the **/etc/wsl.conf** file to your Linux distribution with the following system declaration:  
 ```sh
 [boot]
 systemd=true
@@ -54,5 +56,15 @@ wslconfig /t <Linux_instance>
 If you see a list of units and no errors, the script worked.
 You can test this further by opening a web browser to your Mainsail page (usually localhost / 127.0.0.1). Close the Terminal application. Klipper should still work as expected.
 
+### Moonraker warning: Unable to find Dbus Polkit interface
+If you encounter this error in the Mainsail web interface, after restarting the Linux instance, you will need to set Moonraker's PolicyKit Rules for granting access
+
+In the Linux tab, run the command:
+```sh
+~/moonraker/scripts/set-policykit-rules.sh
+```
+Restart the Linux instance.
+
+## Notices
 This script is Open Source and free to implement under GNU General Public License v3.0.
 I am not responsible for broken installations, tears, or loss of social status when using this script.
